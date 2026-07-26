@@ -396,7 +396,7 @@
     <p>
       Kumpulan aplikasi Android yang aku bangun untuk beberapa masjid, majelis dan
       mitra usaha. Pilih salah satu di bawah, lalu unduh file APK-nya
-      langsung dari Google Drive.
+      langsung dari server distribusi resmi ARZ.
     </p>
 
   </section>
@@ -430,38 +430,38 @@
 
   const APPS = [
 
-    {
-      kode: "QMM-01",
-      nama: "Qurban Multi Masjid",
-      deskripsi: "Aplikasi pencatatan data kurban untuk banyak masjid sekaligus.",
-      driveId: "1Izocao1PXGlWR3L1y0NISK71XXP7czq5"
-    },
-    {
-      kode: "QAH-02",
-      nama: "Qurban Al-Husniyah",
-      deskripsi: "Aplikasi pencatatan data kurban khusus Masjid Al-Husniyah.",
-      driveId: "1QBA0P8ZCjApHnayIuoL3FU4iZ4YlS69T"
-    },
-    {
-      kode: "IGD-03",
-      nama: "Implan GED",
-      deskripsi: "Aplikasi pendukung sistem manajemen gudang & data pengiriman Implan.",
-      driveId: "1VJpDtd90PZqa9x3HYSuIATvyXFCudXfe"
-    },
-    {
-      kode: "HMS-04",
-      nama: "HMS",
-      deskripsi: "Aplikasi manajemen operasional HMS.",
-      driveId: "1Am7PlNhklUZgh5J9O4U6OVGYZvyO8zjb"
-    },
-    {
-      kode: "RSB-05",
-      nama: "Rafi Sablon",
-      deskripsi: "Aplikasi pencatatan pesanan dan produksi untuk Rafi Sablon.",
-      driveId: "1M_0mbObZiuqgTxfs28SP-VrPYZu9kt7P"
-    }
+  {
+    kode: "QMM-01",
+    nama: "Qurban Multi Masjid",
+    deskripsi: "Aplikasi pencatatan data kurban untuk banyak masjid sekaligus.",
+    download: "https://github.com/mthafazima/MY_ARZ_APK/releases/download/v1.0.0/Qurban-MultiMasjid-release.apk"
+  },
+  {
+    kode: "QAH-02",
+    nama: "Qurban Al-Husniyah",
+    deskripsi: "Aplikasi pencatatan data kurban khusus Masjid Al-Husniyah.",
+    download: "https://github.com/mthafazima/MY_ARZ_APK/releases/download/v1.0.0/Qurban-AL-Husniyah-release.apk"
+  },
+  {
+    kode: "IGD-03",
+    nama: "Implan GED",
+    deskripsi: "Aplikasi pendukung sistem manajemen gudang & data pengiriman Implan.",
+    download: "https://github.com/mthafazima/MY_ARZ_APK/releases/download/v1.0.0/IMPLANGED-release.apk"
+  },
+  {
+    kode: "HMS-04",
+    nama: "HMS",
+    deskripsi: "Aplikasi manajemen operasional HMS.",
+    download: "https://github.com/mthafazima/MY_ARZ_APK/releases/download/v1.0.0/HMS-release.apk"
+  },
+  {
+    kode: "RSB-05",
+    nama: "Rafi Sablon",
+    deskripsi: "Aplikasi pencatatan pesanan dan produksi untuk Rafi Sablon.",
+    download: "https://github.com/mthafazima/MY_ARZ_APK/releases/download/v1.0.0/Rafi.Sablon.v3.0.apk"
+  }
 
-  ];
+];
 
   function render(){
 
@@ -474,14 +474,7 @@
     list.innerHTML =
       APPS.map(function(app){
 
-        const downloadUrl =
-          "https://drive.google.com/uc?export=download&id=" +
-          app.driveId;
-
-        const viewUrl =
-          "https://drive.google.com/file/d/" +
-          app.driveId +
-          "/view";
+        const downloadUrl = app.download;
 
         return `
           <div class="row">
@@ -494,12 +487,12 @@
             </div>
 
             <div class="actions">
-              <a class="btn-download" href="${downloadUrl}">
-                Unduh APK ↓
-              </a>
-              <a class="link-alt" href="${viewUrl}" target="_blank" rel="noopener">
-                Lihat di Drive
-              </a>
+             <a class="btn-download"
+   href="${downloadUrl}"
+   target="_blank"
+   rel="noopener">
+   Unduh APK ↓
+</a>
             </div>
 
           </div>
